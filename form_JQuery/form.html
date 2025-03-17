@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -127,4 +128,135 @@
         });
 </script>
 </body>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <script src="jquery.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .wrapper {
+            width: 550px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        label {
+            top: 12px;
+            left: 0;
+            float: left;
+            width: 200px;
+            position: relative;
+        }
+        input {
+            width: 320px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: medium;
+        }
+        #submit {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: medium;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        #errors {
+            color: red;
+            margin: 10px 0;
+        }
+        .formelem {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id = "errors"></div>
+    <div class="wrapper">
+        <div class="formelem">
+            <label for="Email">Email</label>
+            <input type="text" id="Email" name="Email"/>
+        </div>
+        
+        <div class="formelem">
+            <label for="phonenum">Number</label>
+            <input type="phonenum" id="phonenum" name="phonenum"/>
+        </div>
+        <div class="formelem">
+            <label for="pass">Password</label>
+            <input type="password" id="pass" name="pass"/>
+        </div>
+        <div class="formelem">
+            <label for="cpass">Confirm Password</label>
+            <input type="password" id="cpass" name="cpass"/>
+        </div>
+        <input type="submit" id="submit" value="Submit"/>
+</div>
+<script>
+    var errormsg = '';
+    var email = $('#Email').val();
+    var phonenum = $('#phonenum').val();
+    var pass = $('#pass').val();
+    var cpass = $('#cpass').val();
+
+    function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+    
+    $('#submit').click(function(){
+             // Prevent form submission
+            
+            var errormsg = ''; 
+            var missingfield ='';
+            var email = $('#Email').val();
+            var phonenum = $('#phonenum').val();
+            var pass = $('#pass').val();
+            var cpass = $('#cpass').val();
+            
+            if(email === ''){
+                missingfield += '<p>Email is required</p>';
+            }
+            if(phonenum === ''){
+                missingfield += '<p>Phone number is required</p>';
+            }
+            if(pass === ''){
+                missingfield += '<p>Password is required</p>';
+            }
+            if(cpass === ''){
+                missingfield += '<p>Confirm Password is required</p>';
+            }
+
+            if(!validateEmail(email)){
+                errormsg += '<p>Email is required and must be valid</p>';
+            }
+            if(!$.isNumeric(phonenum)){
+                errormsg += '<p>Phone number is required and must be numeric</p>';
+            }
+            if(pass !== cpass){
+                errormsg += '<p>Password and Confirm Password should be the same</p>';
+            }
+            
+            if(errormsg){
+                $('#errors').html(errormsg + missingfield);
+            } else {
+                $('#errors').html('Form submitted successfully').css('color', 'green');
+            }
+        });
+</script>
+</body>
+>>>>>>> 487fdfcebf41bcd78fa2cd32894699568ae7094a
 </html>

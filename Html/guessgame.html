@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,4 +23,30 @@
         </script>
            
     </body>
+=======
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Random Number Guessing Game</title>
+    </head>
+    <body>
+        <input type="text" id="guessField">
+        <button id="button">Click me</button>
+        <p>Enter number between 1 and 5</p>
+        <script>
+           document.getElementById('button').onclick = function(){
+            var inp = document.getElementById('guessField').value;
+            var rand = Math.floor(Math.random()*5) + 1;
+            console.log(rand);
+            if(inp == rand){
+                alert('You have guessed the correct number');
+           }
+        else{
+            alert('You have guessed the wrong number');
+        }
+    }                                        
+        </script>
+           
+    </body>
+>>>>>>> 487fdfcebf41bcd78fa2cd32894699568ae7094a
 </html>
